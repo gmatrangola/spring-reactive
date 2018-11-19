@@ -115,8 +115,8 @@ spring.data.cassandra.prot=9042
 # Start Web Service NOW!
 
 > docker cp data/scitech.csv spring-cassandra:/tmp/
-> docker exec -ti COPY world.indicator (countryname,countrycode,indicatorname,indicatorcode,year1970,year1980,year1990,year2000,year2010,year2016,year2017) FROM 'tmp/scitech.csv' WITH HEADER = TRUE
 > docker exec -ti spring-cassandra cqlsh localhost
+cqlsh> COPY world.indicator (countryname,countrycode,indicatorname,indicatorcode,year1970,year1980,year1990,year2000,year2010,year2017,year2018) FROM 'tmp/scitech.csv' WITH HEADER = TRUE
 cqlsh> select * from world.indicator where countrycode = 'BGR';
 
  indicatorcode     | countrycode | countryname | indicatorname                                                             | year1970 | year1980 | year1990 | year2000   | year2010   | year2017   | year2018
